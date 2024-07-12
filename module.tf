@@ -5,7 +5,7 @@ resource "azurerm_private_dns_zone" "dns-zone" {
   dynamic "soa_record" {
     for_each = try(var.private_dns_zone.soa_record, {}) != {} ? [1] : []
     content {
-      email = try(var.private_dns_zone.soa_record, "azurecloudoperations.operationsinfonuagiquesazure@ssc-spc.gc.ca")
+      email = try(var.private_dns_zone.soa_record, "azurecloudoperations.operationsinfonuagiquesazure_ssc-spc.gc.ca")
       expire_time = try(var.private_dns_zone.soa_record_record.expire_time, 2419200)
       minimum_ttl = try(var.private_dns_zone.soa_record_record.minimum_ttl, 10)
       refresh_time = try(var.private_dns_zone.soa_record_record.refresh_time, 3600)
