@@ -1,3 +1,8 @@
+variable "name" {
+  description = "(Required) Name of the private DNS zone"
+  type = string
+}
+
 variable "resource_groups" {
   description = "(Required) Objects containing all resource groups for the sub"
   type = any
