@@ -26,7 +26,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "dns-zone-link" {
   name = "${var.private_dns_zone.name}-vlnk"
   private_dns_zone_name = azurerm_private_dns_zone.dns-zone.name
   resource_group_name = azurerm_private_dns_zone.dns-zone.resource_group_name
-  virtual_network_id = try(var.private_dns_zone.vnetID, replace(var.subnets.MAZ.id, "/\\/subnets.*$/", ""))
+  virtual_network_id = try(var.private_dns_zone.vnetID, replace(var.subnet_id, "/\\/subnets.*$/", ""))
   registration_enabled = try(var.private_dns_zone.registration_enabled, false)
   tags = var.tags
 

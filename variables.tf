@@ -3,9 +3,9 @@ variable "resource_groups" {
   type = any
 }
 
-variable "subnets" {
+variable "subnet_id" {
   description = "(Required) Object containing subnet information"
-  type = any
+  type = string
 }
 
 variable "tags" {
