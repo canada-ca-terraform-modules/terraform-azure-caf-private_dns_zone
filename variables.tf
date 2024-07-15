@@ -8,8 +8,8 @@ variable "resource_groups" {
   type = any
 }
 
-variable "subnet_id" {
-  description = "(Required) Object containing subnet information"
+variable "vnet_id" {
+  description = "(Required) Vnet ID to link to DNS zone to"
   type = string
 }
 
