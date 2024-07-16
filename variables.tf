@@ -6,6 +6,7 @@ variable "name" {
 variable "resource_groups" {
   description = "(Required) Objects containing all resource groups for the sub"
   type = any
+  default = {}
 }
 
 variable "vnet_id" {
