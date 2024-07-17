@@ -4,7 +4,7 @@ variable "privateDNSzone" {
 }
 
 module "private_dns_zone" {
-  source = "github.com/canada-ca-terraform-modules/terraform-azurerm-caf-private_dns_zone.git"
+  source = "github.com/canada-ca-terraform-modules/terraform-azurerm-caf-private_dns_zone.git?ref=v1.0.0"
   for_each = var.privateDNSzone
 
   private_dns_zone = each.value
