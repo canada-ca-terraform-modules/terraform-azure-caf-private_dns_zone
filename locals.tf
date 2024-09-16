@@ -6,4 +6,6 @@ locals {
 
   # If we received an ID, then we take it as is. If we didn't, then we take the default vnet ID of the sub of the project
   vnet_id = try(strcontains(var.private_dns_zone.vnet_link, "/resourceGroups/") ?  var.private_dns_zone.vnet_link : var.vnet_id, var.vnet_id)
+
+  core_vnet_id = length(regexall("^.3..$", var.env)) > 0 ? "/subscriptions/93aef9d8-f8cf-4d9f-9e07-5373f3d722c2/resourceGroups/G3Mc-CTO-ENT-MRZ-Network-rg/providers/Microsoft.Network/virtualNetworks/G3McCNR-MRZ-vnet" : "/subscriptions/c8e75926-9169-46ba-9af1-8c657141280e/resourceGroups/GcPc-CTO-ENT-CORE-Network-rg/providers/Microsoft.Network/virtualNetworks/GcPcCNR-MRZ-vnet"  
 }

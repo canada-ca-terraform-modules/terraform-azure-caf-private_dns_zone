@@ -36,3 +36,18 @@ resource "azurerm_private_dns_zone_virtual_network_link" "dns-zone-link" {
     ignore_changes = [ tags, ]
   }
 }
+
+resource "azurerm_private_dns_zone_virtual_network_link" "core-zone-link" {
+  count = try(var.private_dns_zone.core_link_enabled, false) ? 1 : 0
+  
+  name = "${var.name}-core-vlnk"
+  private_dns_zone_name = azurerm_private_dns_zone.dns-zone.name
+  resource_group_name = azurerm_private_dns_zone.dns-zone.resource_group_name
+  virtual_network_id = local.core_vnet_id
+  registration_enabled = try(var.private_dns_zone.registration_enabled, false)
+  tags = var.tags
+
+  lifecycle {
+    ignore_changes = [ tags ]
+  }
+}
